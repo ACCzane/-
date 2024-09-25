@@ -9,4 +9,9 @@ public static class EventHandler
     public static void CallinteractType(){
         TransferScene?.Invoke();
     }
+
+    public static event Action UpdateBag_Book;
+    public static void CallUpdateBag_Book(){
+        UpdateBag_Book?.Invoke();
+    }
 }

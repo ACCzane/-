@@ -6,3 +6,11 @@ public enum InteractableObjectType{
     Book, Furniture, Plant,
     Teleport
 }
+
+public enum BookType{
+    Literacy,
+    Children,
+    Science,
+    Love,
+    Photography
+}
