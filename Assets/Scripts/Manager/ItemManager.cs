@@ -23,7 +23,7 @@ public class ItemManager : MonoBehaviour
     }
 
     //TODO:加成道具数据结构
-    public PropDetail GetPropDetailById(int propId){
+    public ItemDetail GetPropDetailById(int propId){
         return null;
     }
 }

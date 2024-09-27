@@ -14,4 +14,9 @@ public static class EventHandler
     public static void CallUpdateBag_Book(){
         UpdateBag_Book?.Invoke();
     }
+    
+    public static event Action UpdateBag_Item;
+    public static void CallUpdateBag_Item(){
+        UpdateBag_Book?.Invoke();
+    }
 }

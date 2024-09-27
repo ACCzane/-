@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe6ffe698ec34330b0d2019421ecdf2, type: 3}
+  m_Name: BookList
+  m_EditorClassIdentifier: 
+  books:
+  - bookId: 0
+    bookName: "\u6570\u5B66\u4E66"
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 1
+    bookName: "\u8BED\u6587\u4E66"
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 2
+    bookName: "\u6F2B\u753B"
+    bookIntro: 
+    bookType: 1
+    price: 0
+  - bookId: 3
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 4
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 5
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 6
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 7
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 8
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 9
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 10
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 11
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 12
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 13
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 14
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 15
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 16
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 17
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 18
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
+  - bookId: 19
+    bookName: 
+    bookIntro: 
+    bookType: 0
+    price: 0
