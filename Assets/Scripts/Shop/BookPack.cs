@@ -6,7 +6,7 @@ public class BookPack : MonoBehaviour
 {
     private List<int> books = new List<int>();
 
-    public List<int> GetBookPack(int amount){
-        return ShopManager.Singleton.GenerateBooks(amount);
-    }
+    // public List<int> GetBookPack(int amount){
+    //     return ShopManager.Singleton.GenerateBooks(amount);
+    // }
 }

@@ -12,19 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b37f64f2a3f4f1e9a285f391547521, type: 3}
   m_Name: BookStorage
   m_EditorClassIdentifier: 
-  books:
-  - capacity: 5
-    bookType: 0
-    bookIds: 
-  - capacity: 5
-    bookType: 1
-    bookIds: 
-  - capacity: 5
-    bookType: 2
-    bookIds: 
-  - capacity: 5
-    bookType: 3
-    bookIds: 
-  - capacity: 5
-    bookType: 4
-    bookIds: 
+  books: []

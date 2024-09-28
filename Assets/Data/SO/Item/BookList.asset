@@ -14,102 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   books:
   - bookId: 0
-    bookName: "\u6570\u5B66\u4E66"
-    bookIntro: 
+    bookName: LBook
+    bookIntro: HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
     bookType: 0
     price: 0
   - bookId: 1
-    bookName: "\u8BED\u6587\u4E66"
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 2
-    bookName: "\u6F2B\u753B"
-    bookIntro: 
+    bookName: CBook1
+    bookIntro: 2222333232323232323223232
     bookType: 1
-    price: 0
+    price: 12
+  - bookId: 2
+    bookName: Comic
+    bookIntro: SDSDSADAWDASDE
+    bookType: 2
+    price: 3
   - bookId: 3
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
+    bookName: XXBOOK
+    bookIntro: SDSADWADW
+    bookType: 3
+    price: 2
   - bookId: 4
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 5
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 6
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 7
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 8
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 9
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 10
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 11
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 12
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 13
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 14
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 15
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 16
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 17
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 18
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
-  - bookId: 19
-    bookName: 
-    bookIntro: 
-    bookType: 0
-    price: 0
+    bookName: SADOSIDSABOOKC
+    bookIntro: SDSADKLADSKL
+    bookType: 4
+    price: 3
