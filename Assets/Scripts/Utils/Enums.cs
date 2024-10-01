@@ -8,9 +8,9 @@ public enum InteractableObjectType{
 }
 
 public enum BookType{
-    Literacy,
-    Children,
-    Science,
-    Love,
-    Photography
+    Literacy,//Red
+    Children,//Yellow
+    Science,//Blue
+    Love,//White
+    Photography//Gray
 }
