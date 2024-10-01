@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemUIManager : MonoBehaviour
 {
@@ -9,11 +10,20 @@ public class ItemUIManager : MonoBehaviour
     [SerializeField] private GameObject bookUIPrefab;
     [SerializeField] private BookTipUI bookTipUI;
 
+    private Dictionary<BookType, Color> bookColors = new Dictionary<BookType,Color>();
+
     private void OnEnable() {
         if (Singleton != null) return;
         Singleton = this;
 
         bookTipUI.gameObject.SetActive(false);
+
+        //初始化字典
+        bookColors[BookType.Literacy] = Color.red;
+        bookColors[BookType.Children] = Color.yellow;
+        bookColors[BookType.Love] = Color.white;
+        bookColors[BookType.Photography] = Color.gray;
+        bookColors[BookType.Science] = Color.blue;
     }
 
     /// <summary>
@@ -27,6 +37,8 @@ public class ItemUIManager : MonoBehaviour
         BookSlotUI bookSlotUI = Instantiate(bookUIPrefab, parent).GetComponent<BookSlotUI>();
         //给bookSlotUI初始化
         bookSlotUI.InitBookSlotUI(bookDetail);
+        //TODO:前期没有美术素材，用颜色做区分
+        bookSlotUI.GetComponent<Image>().color = bookColors[bookSlotUI.BookDetail.bookType];
         return bookSlotUI;
     }
 

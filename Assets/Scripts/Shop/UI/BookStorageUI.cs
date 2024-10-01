@@ -28,10 +28,10 @@ public class BookStorageUI : MonoBehaviour
 
     private void UpdateBookStorageUI()
     {
-        bookAmount1.text = bookStorage_SO.books_children.Count.ToString();
-        bookAmount2.text = bookStorage_SO.books_literacy.Count.ToString();
-        bookAmount3.text = bookStorage_SO.books_Love.Count.ToString();
-        bookAmount4.text = bookStorage_SO.books_Photography.Count.ToString();
-        bookAmount5.text = bookStorage_SO.books_Science.Count.ToString();
+        bookAmount1.text = "Children"+bookStorage_SO.books_children.Count.ToString();
+        bookAmount2.text = "Literacy"+bookStorage_SO.books_literacy.Count.ToString();
+        bookAmount3.text = "Love"+bookStorage_SO.books_Love.Count.ToString();
+        bookAmount4.text = "Photography"+bookStorage_SO.books_Photography.Count.ToString();
+        bookAmount5.text = "Science"+bookStorage_SO.books_Science.Count.ToString();
     }
 }
