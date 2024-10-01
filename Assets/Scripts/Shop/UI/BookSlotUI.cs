@@ -15,12 +15,16 @@ public class BookSlotUI : MonoBehaviour
     private Image bookImage;
     private BookSlotUI book;
     private Button button;
+    private int slotHash;
 
     private void OnEnable() {
         book = GetComponent<BookSlotUI>();
         button = GetComponent<Button>();
         bookImage = GetComponent<Image>();
 
+        slotHash = this.GetHashCode();
+
+        //点击事件注册
         button.onClick.AddListener(PickUpBook);
 
         EventHandler.AddBookToStorage += AddToStorage;
@@ -37,9 +41,9 @@ public class BookSlotUI : MonoBehaviour
         //TODO:创建视觉效果
     }
 
-    private void AddToStorage()
+    private void AddToStorage(int slotHash)
     {
-        Debug.Log(GetComponent<RectTransform>().GetInstanceID());
+        if(this.slotHash != slotHash) return;
         StorageManager.Singleton.AddBook(book.BookDetail);
     }
 
@@ -48,9 +52,8 @@ public class BookSlotUI : MonoBehaviour
     }
 
     public void PickUpBook(){
-        Debug.Log(bookImage.GetHashCode());
-
-        EventHandler.CallAddBookToStorage();
+        //顺序
+        EventHandler.CallAddBookToStorage(slotHash);
         EventHandler.CallUpdateStorageUI();
 
         HideInScene();
