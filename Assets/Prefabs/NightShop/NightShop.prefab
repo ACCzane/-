@@ -2175,6 +2175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookList_SO: {fileID: 11400000, guid: f3946f98aeb914342bc81911cd153ec8, type: 2}
+  bookStorage_SO: {fileID: 11400000, guid: 992eaa47f4d95456caa9d6f123ddac60, type: 2}
 --- !u!114 &3920395854042514698
 MonoBehaviour:
   m_ObjectHideFlags: 0

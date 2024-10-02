@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b37f64f2a3f4f1e9a285f391547521, type: 3}
   m_Name: BookStorage
   m_EditorClassIdentifier: 
+  playerCoin: 100
   books: []

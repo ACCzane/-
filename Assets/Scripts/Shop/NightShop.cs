@@ -7,14 +7,27 @@ using UnityEngine;
 public class NightShop : MonoBehaviour
 {
     [SerializeField] private BookList_SO bookList_SO;
+    [SerializeField] private BookStorage_SO bookStorage_SO;
     private List<BookDetail> books;
+    private int playerCoin;
 
     private void OnEnable() {
         books = new List<BookDetail>();
+
+        EventHandler.AddBookToStorage += AddToStorage;
+    }
+
+    private void OnDisable() {
+        EventHandler.AddBookToStorage -= AddToStorage;
+    }
+
+    private void AddToStorage(BookSlotUI book)
+    {
+        bookStorage_SO.books.Add(book.BookDetail);
     }
 
     /// <summary>
-    /// 刷新夜晚商店，商品更新
+    /// 刷新夜晚商店，商品更新，商品数据存在私有变量books中
     /// </summary>
     public void UpdateNightShop(){
         //TODO:暂定，等策划
@@ -36,23 +49,14 @@ public class NightShop : MonoBehaviour
         Debug.Log("Event Called");
     }
 
+    /// <summary>
+    /// 随机从存储了所有书本信息的bookList_SO中取一个BookDetail
+    /// </summary>
+    /// <param name="books"></param>
+    /// <returns></returns>
     private BookDetail GetRandomBook(List<BookDetail> books){
         int randomNum = UnityEngine.Random.Range(0, books.Count-1);
         return books[randomNum];
     }
 
-    // /// <summary>
-    // /// 获取随机的几本书，将作为一个玩家可购买的选项, 弃用，策划又不当人辣
-    // /// </summary>
-    // /// <param name="amount">书的数量</param>
-    // public List<int> GenerateBooks(int amount){
-    //     books.Clear();
-
-    //     for(int i = 0; i < amount; i++){
-    //         int randomIndex = Random.Range(0, books.Count);
-    //         books.Add(bookList_SO.books[randomIndex].bookId);
-    //     }
-
-    //     return books;
-    // }
 }

@@ -25,9 +25,9 @@ public static class EventHandler
         UpdateNightShop?.Invoke(bookDetails);
     }
 
-    public static event Action<int> AddBookToStorage;
-    public static void CallAddBookToStorage(int slotHash){
-        AddBookToStorage?.Invoke(slotHash);
+    public static event Action<BookSlotUI> AddBookToStorage;
+    public static void CallAddBookToStorage(BookSlotUI book){
+        AddBookToStorage?.Invoke(book);
     }
 
     public static event Action UpdateStorageUI;

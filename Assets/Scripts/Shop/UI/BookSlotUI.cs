@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// 商店系统中，可以点击购买的书本
+/// </summary>
 public class BookSlotUI : MonoBehaviour
 {
     [SerializeField] private BookDetail bookDetail;
@@ -27,13 +30,13 @@ public class BookSlotUI : MonoBehaviour
         //点击事件注册
         button.onClick.AddListener(PickUpBook);
 
-        EventHandler.AddBookToStorage += AddToStorage;
+        // EventHandler.AddBookToStorage += AddToStorage;
     }
 
     private void OnDisable() {
         button.onClick.RemoveAllListeners();
 
-        EventHandler.AddBookToStorage -= AddToStorage;
+        // EventHandler.AddBookToStorage -= AddToStorage;
     }
 
     public void InitBookSlotUI(BookDetail bookDetail){
@@ -41,19 +44,14 @@ public class BookSlotUI : MonoBehaviour
         //TODO:创建视觉效果
     }
 
-    private void AddToStorage(int slotHash)
-    {
-        if(this.slotHash != slotHash) return;
-        StorageManager.Singleton.AddBook(book.BookDetail);
-    }
-
     private void HideInScene(){
         bookImage.enabled = false;
     }
 
     public void PickUpBook(){
-        //顺序
-        EventHandler.CallAddBookToStorage(slotHash);
+        //BookStorage添加数据，这个事件被注册的方法中会执行金币判断操作
+        EventHandler.CallAddBookToStorage(book);
+        //更新UI
         EventHandler.CallUpdateStorageUI();
 
         HideInScene();

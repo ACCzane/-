@@ -7,6 +7,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New BookStorage", menuName = "Bag/BookStorage")]
 public class BookStorage_SO : ScriptableObject
 {
+    /// <summary>
+    /// 玩家金钱，懒得单独创建了，一起放在这个SO里
+    /// </summary>
+    public int playerCoin;
+
     // public int defaultCapacity = 5;
     public List<BookDetail> books;
     public List<BookDetail> books_children => books.Where(
