@@ -44,7 +44,7 @@ public class BookSlotUI : MonoBehaviour
         //TODO:创建视觉效果
     }
 
-    private void HideInScene(){
+    public void HideInScene(){
         bookImage.enabled = false;
     }
 
@@ -53,7 +53,5 @@ public class BookSlotUI : MonoBehaviour
         EventHandler.CallAddBookToStorage(book);
         //更新UI
         EventHandler.CallUpdateStorageUI();
-
-        HideInScene();
     }
 }

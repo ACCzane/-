@@ -9,7 +9,7 @@ public class NightShop : MonoBehaviour
     [SerializeField] private BookList_SO bookList_SO;
     [SerializeField] private BookStorage_SO bookStorage_SO;
     private List<BookDetail> books;
-    private int playerCoin;
+    [SerializeField] private int playerCoin;
 
     private void OnEnable() {
         books = new List<BookDetail>();
@@ -23,7 +23,17 @@ public class NightShop : MonoBehaviour
 
     private void AddToStorage(BookSlotUI book)
     {
+        //如果玩家金币不足
+        if(playerCoin < book.BookDetail.price){
+            //TODO:UI层：显示余额不足
+
+            return;
+        }
+        //数据层：BookStorage_SO文件更新、金币更新
         bookStorage_SO.books.Add(book.BookDetail);
+        playerCoin -= book.BookDetail.price;
+        //TODO:UI层：关闭书的UI显示，显示扣钱
+        book.HideInScene();
     }
 
     /// <summary>

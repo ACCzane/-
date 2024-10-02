@@ -17,7 +17,7 @@ MonoBehaviour:
     bookName: LBook
     bookIntro: HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
     bookType: 0
-    price: 0
+    price: 10
   - bookId: 1
     bookName: CBook1
     bookIntro: 2222333232323232323223232
