@@ -136,6 +136,8 @@ public class GameData
 public class GameSave
 {
     public List<Item> items = new();
+
+    public List<FurnitureDetail> furnitures = new List<FurnitureDetail>();
 }
 
 [System.Serializable]
