@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bab83e3b866234b9b6ccecde5f5584, type: 3}
+  m_Name: "\u5BB6\u5177\u6570\u636E\u5E93"
+  m_EditorClassIdentifier: 
+  furnitureDict:
+    _serializedList:
+    - Key: "\u6536\u94F6\u53F0"
+      Value:
+        id: 
+        furnitureName: 
+        Prefab: {fileID: 21300000, guid: 69f3f7b4928333543818a649eeaf7fbd, type: 3}
+        furnitureType: 0
+    - Key: "\u706B\u628A"
+      Value:
+        id: 
+        furnitureName: 
+        Prefab: {fileID: 21300000, guid: dac4746af41ffdd44b8309f426472f92, type: 3}
+        furnitureType: 1

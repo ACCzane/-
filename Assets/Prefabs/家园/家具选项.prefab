@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 308586232610048945}
+  - component: {fileID: 5874011341439896155}
   m_Layer: 5
   m_Name: "\u5BB6\u5177\u9009\u9879"
   m_TagString: Untagged
@@ -36,6 +37,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 351.4, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5874011341439896155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805941616973635755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86998f7e69bc654c94da94918eda213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureDatabase: {fileID: 11400000, guid: 1183e6e6aa1685e41b569a7622ba99d3, type: 2}
+  id: 
 --- !u!1 &5753319503618350962
 GameObject:
   m_ObjectHideFlags: 0

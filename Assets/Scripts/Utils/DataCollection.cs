@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 /// <summary>
 /// 书的具体数据
 /// </summary>
 [System.Serializable]
-public class BookDetail{
+public class BookDetail
+{
     public int bookId;
     public string bookName;
     public string bookIntro;
@@ -31,7 +33,8 @@ public class BookDetail{
 /// 游戏加成道具的具体数据
 /// </summary>
 [System.Serializable]
-public class ItemDetail{
+public class ItemDetail
+{
     public int itemId;
     public string itemName;
     public string itemintro;
@@ -44,12 +47,15 @@ public class ItemDetail{
 /// 家具的具体数据
 /// </summary>
 [System.Serializable]
-public class FurnitureDetail{
-    public int furnitureId;
-    public string furnitureName;
-    public string furnitureIntro;
-    public int price;
-    public int demonstrationEffect;
-    public bool isNewToPlayer;
+public class FurnitureDetail
+{
+    [ShowAssetPreview]
+    public Sprite Prefab;
 
+    public FurnitureType furnitureType;
+
+    public enum FurnitureType
+    {
+        Floor, Wall
+    }
 }
