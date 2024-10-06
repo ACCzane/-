@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3eae72411d0240888cb7dd2cd2538b1, type: 3}
+  m_Name: NPCRequests
+  m_EditorClassIdentifier: 
+  normalNPCRequests:
+  - likeBase: 1
+    requestText: "\u8981\u4E00\u672C\u300A\u8001\u4EBA\u4E0E\u6D77\u300B"
+    requestType: 1
+    bookType: 0
+    bookName:
+    - "\u8001\u4EBA\u4E0E\u6D77"
+  - likeBase: 1
+    requestText: "\u8981\u4E00\u672C\u79D1\u5B66\u7C7B\u578B\u7684\u4E66"
+    requestType: 0
+    bookType: 2
+    bookName: []
+  - likeBase: 1
+    requestText: "\u8981\u4E00\u672C\u8BB2\u8FF0\u7231\u60C5\u7684\u4E66\uFF08\u53EF\u80FD\u662F\u300ALoveStory1\u300B\uFF0C\u300ALoveStory2\u300B\uFF09"
+    requestType: 2
+    bookType: 3
+    bookName:
+    - LoveStory1
+    - LoveStory2
+  specialNPCRequests: []

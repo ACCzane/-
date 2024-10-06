@@ -10,7 +10,7 @@ public class BookHandler : MonoBehaviour
     /// <summary>
     /// 背包_书籍
     /// </summary>
-    [SerializeField] private BookStorage_SO bag_Book;
+    private BookStorage bag_Book = GameData.GameSave.bookStorage;
 
     /// <summary>
     /// 将book添加到背包(已废)

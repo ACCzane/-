@@ -14,3 +14,14 @@ public enum BookType{
     Love,//White
     Photography//Gray
 }
+
+public enum SlotType{
+    Bag,
+    OnSell
+}
+
+public enum RequestType{
+    ByType,
+    ByName,
+    ByDescription
+}

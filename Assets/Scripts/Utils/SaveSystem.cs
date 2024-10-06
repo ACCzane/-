@@ -136,6 +136,7 @@ public class GameData
 public class GameSave
 {
     public List<Item> items = new();
+    public BookStorage bookStorage = new BookStorage();
 }
 
 [System.Serializable]
