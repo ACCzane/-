@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Baracuda.Monitoring;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ public class SaveSystem : MonoBehaviour
     private void OnEnable()
     {
         GameData.OnSaveChanged += OnSaveChanged;
+
+
     }
 
     private void OnSaveChanged()
@@ -26,6 +29,7 @@ public class SaveSystem : MonoBehaviour
     private void Start()
     {
         OnSaveChanged();
+
     }
     void Update()
     {
@@ -35,17 +39,17 @@ public class SaveSystem : MonoBehaviour
 
     private void OnGUI()
     {
-        
-        settings = new GUIStyle(GUI.skin.label){fontSize = 60};
+
+        settings = new GUIStyle(GUI.skin.label) { fontSize = 60 };
         if (gameSave != null)
         {
             for (int i = 0; i < gameSave.items.Count; i++)
             {
                 GUILayout.BeginHorizontal();
-                GUILayout.Label("物品" + i,settings);
-                GUILayout.Label("id: " + gameSave.items[i].id,settings);
-                GUILayout.Label("lore: " + gameSave.items[i].lore,settings);
-                GUILayout.Label("display: " + gameSave.items[i].display,settings);
+                GUILayout.Label("物品" + i, settings);
+                GUILayout.Label("id: " + gameSave.items[i].id, settings);
+                GUILayout.Label("lore: " + gameSave.items[i].lore, settings);
+                GUILayout.Label("display: " + gameSave.items[i].display, settings);
                 GUILayout.EndHorizontal();
             }
 
@@ -103,7 +107,6 @@ public class GameData
             string json = File.ReadAllText(file);
             Current = JsonConvert.DeserializeObject<GameData>(json, SerializeSettings);
 
-
         }
         else
         {
@@ -137,7 +140,11 @@ public class GameSave
 {
     public List<Item> items = new();
 
-    public List<FurnitureDetail> furnitures = new List<FurnitureDetail>();
+    public List<(string, int)> furnitures = new();
+
+    public List<PlacedFurniture> placedFurnitures = new();
+
+
 }
 
 [System.Serializable]

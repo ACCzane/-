@@ -50,7 +50,7 @@ public class ItemDetail
 public class FurnitureDetail
 {
     [ShowAssetPreview]
-    public Sprite Prefab;
+    public GameObject[] prefab;
 
     public FurnitureType furnitureType;
 
