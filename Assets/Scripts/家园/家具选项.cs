@@ -16,6 +16,10 @@ public class 家具选项 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     Vector3 origin;
     public Image image;
     public TextMeshProUGUI text;
+
+    public RectTransform 物体底部按钮;
+
+    public ObjectsManager objectManager;
     public void OnBeginDrag(PointerEventData eventData)
     {
         origin = transform.position;
@@ -33,12 +37,13 @@ public class 家具选项 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         //mouse position to world position
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
-        //instantiate furniture
-        var furniture = Instantiate(furnitureDatabase.GetById(id).prefab[0], mousePos, Quaternion.identity);
-        furniture.GetComponent<家园对象>().Init(id, mousePos);
+
+
+        PlacedFurniture placedFurniture = GameData.GameSave.Transfer(id, mousePos);
+
+        objectManager.PlaceFurniture(placedFurniture);
 
         GetComponentInParent<家具仓库>().Refresh();
-
     }
     public void Init(string id, int count)
     {

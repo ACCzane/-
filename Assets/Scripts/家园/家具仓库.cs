@@ -6,22 +6,28 @@ using Baracuda.Monitoring;
 using NaughtyAttributes;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class 家具仓库 : MonoBehaviour
 {
     public Furniture_SO database;
 
     public GameObject optionPrefab;
-    [Monitor]
     public Transform Content;
     // Start is called before the first frame update
     void Start()
     {
+        Refresh();
     }
 
 
     void OnEnable()
     {
+        ObjectsManager.仓库更新 += Refresh;
+    }
+
+    private void OnDisable() {
+        ObjectsManager.仓库更新 -= Refresh;
     }
 
     // Update is called once per frame
@@ -33,8 +39,7 @@ public class 家具仓库 : MonoBehaviour
     [Button("刷新")]
     public void Refresh()
     {
-        BroadcastMessage("Destroy");
-
+        BroadcastMessage("Destroy",SendMessageOptions.DontRequireReceiver);
         foreach ((string id, int count) in GameData.GameSave.furnitures)
         {
             Debug.Log(id);

@@ -6,7 +6,6 @@ using Baracuda.Monitoring;
 public class CameraZoom : MonitoredBehaviour
 {
     // Cinemachine Virtual Camera 引用
-    [Monitor]
     public CinemachineVirtualCamera virtualCamera;
 
     // 缩放相关参数
@@ -54,8 +53,15 @@ public class CameraZoom : MonitoredBehaviour
 
     void Update()
     {
-        HandleZoom();
+        //detect if cinemachine virtual camera status is  standby
+        if (virtualCamera.Priority == 0){
+            return;
+        }
+
+
         HandlePan();
+
+        HandleZoom();
     }
 
     void HandleZoom()
@@ -81,7 +87,6 @@ public class CameraZoom : MonitoredBehaviour
         );
     }
 
-    [Monitor]
     Vector2 mouseNorm;
     void HandlePan()
     {
