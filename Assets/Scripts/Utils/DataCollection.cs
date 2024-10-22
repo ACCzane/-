@@ -49,8 +49,11 @@ public class ItemDetail
 [System.Serializable]
 public class FurnitureDetail
 {
+    // [ShowAssetPreview]
+    // public GameObject[] prefab;
+
     [ShowAssetPreview]
-    public GameObject[] prefab;
+    public Sprite[] sprites;
 
     public FurnitureType furnitureType;
 

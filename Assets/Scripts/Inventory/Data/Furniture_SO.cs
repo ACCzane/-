@@ -16,6 +16,12 @@ public class Furniture_SO : ScriptableObject
         return furnitureDict[id];
     }
 
+    
 
+
+    [Button]
+    void 自动添加(){
+
+    }
 }
 

@@ -53,7 +53,7 @@ public class 家具选项 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
         text.SetText(count.ToString());
 
-        image.sprite = furnitureDatabase.GetById(id).prefab[0].GetComponent<SpriteRenderer>().sprite;
+        image.sprite = furnitureDatabase.GetById(id).sprites[0];
         image.SetNativeSize();
         GetComponent<RectTransform>().sizeDelta = image.GetComponent<RectTransform>().rect.size;
 

@@ -9,7 +9,13 @@ using UnityEngine.Timeline;
 
 public class 家园对象 : MonitoredBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    [Monitor][MValueProcessor(nameof(MonitorPlacedFurniture))]
     public PlacedFurniture placedFurniture;
+
+    string MonitorPlacedFurniture(PlacedFurniture placedFurniture){
+        return JsonUtility.ToJson(placedFurniture);
+    }
+    
 
 
     [Monitor]
@@ -78,4 +84,8 @@ public class PlacedFurniture
     public string id;
     public Vector3 position;  //z==0
     public int status;
+
+    internal void NextStatus()
+    {
+    }
 }

@@ -58,12 +58,23 @@ public class ObjectsManager : MonitoredBehaviour
     public void 按下旋转()
     {
         家园对象.selected.placedFurniture.status++;
+        家园对象.selected.GetComponent<SpriteRenderer>().sprite = furnitureDatabase.GetById(家园对象.selected.placedFurniture.id).sprites[家园对象.selected.placedFurniture.status % furnitureDatabase.GetById(家园对象.selected.placedFurniture.id).sprites.Length];
+        //refresh
+        仓库更新.Invoke();
+
+        // 家园对象.selected.placedFurniture.NextStatus();
     }
 
     public void PlaceFurniture(PlacedFurniture placedFurniture)
     {
         FurnitureDetail furnitureDetail = furnitureDatabase.GetById(placedFurniture.id);
-        var furniture = Instantiate(furnitureDetail.prefab[placedFurniture.status % furnitureDetail.prefab.Length], placedFurniture.position, Quaternion.identity, transform);
-        furniture.GetComponent<家园对象>().Init(placedFurniture);
+        // var furniture = Instantiate(furnitureDetail.prefab[placedFurniture.status % furnitureDetail.prefab.Length], placedFurniture.position, Quaternion.identity, transform);
+        var sprite = furnitureDetail.sprites[placedFurniture.status % furnitureDetail.sprites.Length];
+        GameObject gameObject1 = new GameObject(placedFurniture.id, typeof(SpriteRenderer));
+        gameObject1.transform.position = placedFurniture.position;
+        gameObject1.transform.SetParent(transform);
+        gameObject1.GetComponent<SpriteRenderer>().sprite = sprite;
+        gameObject1.AddComponent<家园对象>().Init(placedFurniture);
+        gameObject1.AddComponent<PolygonCollider2D>();
     }
 }
