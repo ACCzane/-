@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Baracuda.Monitoring;
+using System.Linq;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -28,20 +27,42 @@ public class 家具选项 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
+
+        //use event system to detect if the mouse is over background sprite
+
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public GameObject background;
+    public async void OnEndDrag(PointerEventData eventData)
     {
-        transform.position = origin;
+        //通过event system检测鼠标是否在背景精灵上
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
+        {
+            position = Input.mousePosition
+        };
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
 
-        //mouse position to world position
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
+        if (raycastResults.Any(res => res.gameObject == background))
+        {
+            transform.position = origin;
+
+            //mouse position to world position
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0;
 
 
-        PlacedFurniture placedFurniture = GameData.GameSave.Transfer(id, mousePos);
+            PlacedFurniture placedFurniture = GameData.GameSave.Transfer(id, mousePos);
 
-        objectManager.PlaceFurniture(placedFurniture);
+            objectManager.PlaceFurniture(placedFurniture);
+        }
+        else
+        {
+            await Tween.Position(transform, origin, 0.2f);
+            
+        }
+
+
 
         GetComponentInParent<家具仓库>().Refresh();
     }
@@ -68,7 +89,12 @@ public class 家具选项 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
 
+
+
+        }
     }
 
     void Destroy()

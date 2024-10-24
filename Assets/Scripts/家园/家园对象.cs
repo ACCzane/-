@@ -69,7 +69,9 @@ public class 家园对象 : MonitoredBehaviour, IPointerClickHandler, IDragHandl
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //TODO 修改家具位置
+        //修改家具位置
+        placedFurniture.position = transform.position;
+        
     }
 
     internal void Init(PlacedFurniture placedFurniture)

@@ -5,63 +5,6 @@ using Baracuda.Monitoring;
 using Newtonsoft.Json;
 using UnityEngine;
 
-/// <summary>
-/// 该组件只是一个调用存档API，并修改存档内容的例子。存档系统本身无需任何组件，正式版中无需此组件。
-/// </summary>
-[ExecuteAlways]
-public class SaveSystem : MonoBehaviour
-{
-    public GameSave gameSave;
-    GUIStyle settings;
-
-    private void OnEnable()
-    {
-        GameData.OnSaveChanged += OnSaveChanged;
-
-
-    }
-
-    private void OnSaveChanged()
-    {
-        gameSave = GameData.GameSave;
-
-    }
-    private void Start()
-    {
-        OnSaveChanged();
-
-    }
-    void Update()
-    {
-        GameData.GameSave = gameSave;
-    }
-
-
-    private void OnGUI()
-    {
-
-        settings = new GUIStyle(GUI.skin.label) { fontSize = 60 };
-        if (gameSave != null)
-        {
-            for (int i = 0; i < gameSave.items.Count; i++)
-            {
-                GUILayout.BeginHorizontal();
-                GUILayout.Label("物品" + i, settings);
-                GUILayout.Label("id: " + gameSave.items[i].id, settings);
-                GUILayout.Label("lore: " + gameSave.items[i].lore, settings);
-                GUILayout.Label("display: " + gameSave.items[i].display, settings);
-                GUILayout.EndHorizontal();
-            }
-
-        }
-
-    }
-
-    private void OnDisable()
-    {
-        GameData.OnSaveChanged -= OnSaveChanged;
-    }
-}
 
 
 public class GameData

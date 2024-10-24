@@ -42,7 +42,6 @@ public class 家具仓库 : MonoBehaviour
         BroadcastMessage("Destroy",SendMessageOptions.DontRequireReceiver);
         foreach ((string id, int count) in GameData.GameSave.furnitures)
         {
-            Debug.Log(id);
             var go = Instantiate(optionPrefab, Content);
             go.name = id + " x" + count;
             go.GetComponent<家具选项>().Init(id, count);
