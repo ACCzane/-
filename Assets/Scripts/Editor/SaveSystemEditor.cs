@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class SaveSystemEditor
 {
@@ -42,6 +43,16 @@ public class SaveSystemEditor
             GUILayout.Label("当前槽位" + GameData.index);
             GameData.index = EditorGUILayout.IntField("槽位",  GameData.index);
             GUILayout.Label("0~9共10个存档槽位");
+        }
+    }
+
+
+    public static void 随机加入家具()
+    {
+        
+        for (int i = 0; i < 10; i++)
+        {
+            
         }
     }
 }

@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bab83e3b866234b9b6ccecde5f5584, type: 3}
+  m_Name: "\u5BB6\u5177\u6570\u636E\u5E93"
+  m_EditorClassIdentifier: 
+  furnitureDict:
+    _serializedList:
+    - Key: "\u4E66\u67B6"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 4609438fa3eb9a94c866531fd541420e, type: 3}
+        - {fileID: 21300000, guid: 5cbe1837cde342a478e188cdd26656c1, type: 3}
+        - {fileID: 21300000, guid: 78f109e05e9b0554da2241196b54f22f, type: 3}
+        furnitureType: 0
+    - Key: "\u4E66\u684C"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: b837d75d76c9da942891729fbfff57c8, type: 3}
+        furnitureType: 0
+    - Key: "\u5706\u684C"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 9ff69db3fac771e48b94afe90adccc64, type: 3}
+        furnitureType: 0
+    - Key: "\u5C0F\u4E66\u67B6"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 9735258ec9c3ebe4d892a83d70c5190a, type: 3}
+        furnitureType: 0
+    - Key: "\u5C0F\u9AD8\u53F0"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 3f0abccbacc1dd94ead1bacb95661c89, type: 3}
+        furnitureType: 0
+    - Key: "\u6536\u94F6\u53F0"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 69f3f7b4928333543818a649eeaf7fbd, type: 3}
+        furnitureType: 0
+    - Key: "\u697C\u68AF"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 26777a9edecb1d24dbe876f3385413af, type: 3}
+        furnitureType: 0
+    - Key: "\u767D\u8272\u5730\u6BEF"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 3bc7eec5350f8484f881bf09e9d49f25, type: 3}
+        furnitureType: 0
+    - Key: "\u767D\u8272\u5C0F\u732B\u5730\u6BEF"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 9c72b687b4afe4448b77be00764b72bb, type: 3}
+        furnitureType: 0
+    - Key: "\u76C6\u683D"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: fd744e23a5e42ca4e87c995b17fb089f, type: 3}
+        - {fileID: 21300000, guid: 244a844dcc28bf44897a9ff37e4b91f4, type: 3}
+        - {fileID: 21300000, guid: 520a686adf7046245b38665ec27264e8, type: 3}
+        furnitureType: 0
+    - Key: "\u84DD\u8272\u5730\u6BEF"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: e43276d0f989c7b40ab70e93f171fc20, type: 3}
+        furnitureType: 0
+    - Key: "\u4E66\u67B6\u4E09\u5C42"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 71481fec5ce128545ba6627a867c56c6, type: 3}
+        furnitureType: 0
+    - Key: "\u6302\u5F0F\u4E66\u67B6"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 4899627d7904c464d9287d55969909c2, type: 3}
+        furnitureType: 0
+    - Key: "\u6302\u9970"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 1f76a709796a9814eb64d7dc0ca94155, type: 3}
+        furnitureType: 0
+    - Key: "\u706B\u628A"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: dac4746af41ffdd44b8309f426472f92, type: 3}
+        furnitureType: 1
+    - Key: "\u7A97\u6237"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 7b90c8eea1f2b1e4eb7e32e558cd71c3, type: 3}
+        - {fileID: 21300000, guid: c69a28a7e3e6b8047911b394169d5091, type: 3}
+        furnitureType: 0
+    - Key: "\u82B1"
+      Value:
+        sprites:
+        - {fileID: 21300000, guid: 2590deb79a45c9846b86798d40a478f2, type: 3}
+        furnitureType: 0

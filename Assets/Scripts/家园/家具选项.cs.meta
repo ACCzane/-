@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: c86998f7e69bc654c94da94918eda213
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - furnitureDatabase: {fileID: 11400000, guid: 1183e6e6aa1685e41b569a7622ba99d3, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

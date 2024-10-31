@@ -1,63 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Baracuda.Monitoring;
 using Newtonsoft.Json;
 using UnityEngine;
 
-/// <summary>
-/// 该组件只是一个调用存档API，并修改存档内容的例子。存档系统本身无需任何组件，正式版中无需此组件。
-/// </summary>
-[ExecuteAlways]
-public class SaveSystem : MonoBehaviour
-{
-    public GameSave gameSave;
-    GUIStyle settings;
-
-    private void OnEnable()
-    {
-        GameData.OnSaveChanged += OnSaveChanged;
-    }
-
-    private void OnSaveChanged()
-    {
-        gameSave = GameData.GameSave;
-
-    }
-    private void Start()
-    {
-        OnSaveChanged();
-    }
-    void Update()
-    {
-        GameData.GameSave = gameSave;
-    }
-
-
-    private void OnGUI()
-    {
-        
-        settings = new GUIStyle(GUI.skin.label){fontSize = 60};
-        if (gameSave != null)
-        {
-            for (int i = 0; i < gameSave.items.Count; i++)
-            {
-                GUILayout.BeginHorizontal();
-                GUILayout.Label("物品" + i,settings);
-                GUILayout.Label("id: " + gameSave.items[i].id,settings);
-                GUILayout.Label("lore: " + gameSave.items[i].lore,settings);
-                GUILayout.Label("display: " + gameSave.items[i].display,settings);
-                GUILayout.EndHorizontal();
-            }
-
-        }
-
-    }
-
-    private void OnDisable()
-    {
-        GameData.OnSaveChanged -= OnSaveChanged;
-    }
-}
 
 
 public class GameData
@@ -89,7 +36,7 @@ public class GameData
     public static readonly JsonSerializerSettings SerializeSettings = new JsonSerializerSettings
     {
         Formatting = Formatting.Indented,
-        // ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+        ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
         // PreserveReferencesHandling = PreserveReferencesHandling.Objects,
         // TypeNameHandling = TypeNameHandling.Auto,
     };
@@ -102,7 +49,6 @@ public class GameData
             firstBoot = false;
             string json = File.ReadAllText(file);
             Current = JsonConvert.DeserializeObject<GameData>(json, SerializeSettings);
-
 
         }
         else
@@ -136,7 +82,67 @@ public class GameData
 public class GameSave
 {
     public List<Item> items = new();
-    public BookStorage bookStorage = new BookStorage();
+
+    public List<(string, int)> furnitures = new();
+
+    public List<PlacedFurniture> placedFurnitures = new();
+
+    /// <summary>
+    /// 用于将furnitures中的家具，根据id转移到placedFurnitures中，同时数量减少
+    /// </summary>
+    /// <param name="id"></param>
+    public PlacedFurniture Transfer(string id, Vector3 pos)
+    {
+        var furnitureIndex = furnitures.FindIndex(f => f.Item1 == id);
+        if (furnitureIndex == -1)
+        {
+            throw new Exception("存档中根本没有此家具");
+        }
+        else if (furnitures[furnitureIndex].Item2 > 1)
+        {
+            var furniture = furnitures[furnitureIndex];
+            furnitures[furnitureIndex] = (furniture.Item1, furniture.Item2 - 1);
+        }
+        else if (furnitures[furnitureIndex].Item2 == 1)
+        {
+            furnitures.RemoveAt(furnitureIndex);
+        }
+        else
+        {
+            throw new Exception("Unexpected exception");
+        }
+
+        var pFurniture = new PlacedFurniture()
+        {
+            id = id,
+            position = pos,
+            status = 0
+        };
+        placedFurnitures.Add(pFurniture);
+        return pFurniture;
+
+    }
+
+    /// <summary>
+    /// 用于将placedFurnitures中的家具，根据id转移到furnitures中，同时数量增加
+    /// </summary>
+    public void RevertToStorage(PlacedFurniture placedFurniture)
+    {
+        placedFurnitures.Remove(placedFurniture);
+
+        var furnitureIndex = furnitures.FindIndex(f => f.Item1 == placedFurniture.id);
+        if (furnitureIndex == -1)
+        {
+            furnitures.Add((placedFurniture.id, 1));
+        }
+        else
+        {
+            var furniture = furnitures[furnitureIndex];
+            furnitures[furnitureIndex] = (furniture.Item1, furniture.Item2 + 1);
+        }
+    }
+
+
 }
 
 [System.Serializable]
