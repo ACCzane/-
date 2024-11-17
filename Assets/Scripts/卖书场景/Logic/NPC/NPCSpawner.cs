@@ -14,20 +14,23 @@ namespace BookSelling
         [SerializeField] private float npcWalkSpeed;
 
         private void OnEnable() {
-            EventHandler.NPCRequestForBook += OnNPCRequestForBook;
+            EventHandler.NPCSpawn += OnNPCSpawn;
         }
 
         private void OnDisable() {
-            EventHandler.NPCRequestForBook -= OnNPCRequestForBook;
+            EventHandler.NPCSpawn -= OnNPCSpawn;
         }
 
-        private void OnNPCRequestForBook(NPCRequest request)
+        private void OnNPCSpawn(NPCRequest request)
         {
             // npcGO
             GameObject npcGO = Instantiate(npcPrefab, startPos, Quaternion.identity);
             NPC npc = npcGO.GetComponent<NPC>();
-            npc.Init(request);
-            npc.WalkToPos(endPos);
+            npc.Init(request, startPos, endPos, npcWalkSpeed);
+
+            EventHandler.CallLinkBooksToNPC(npc);
+
+            npc.WalkToPos();
         }
 
         private void OnDrawGizmosSelected() {

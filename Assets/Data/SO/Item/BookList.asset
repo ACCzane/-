@@ -16,30 +16,30 @@ MonoBehaviour:
   - bookId: 0
     bookName: LBook
     bookIntro: HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-    bookIcon: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
     bookType: 0
     price: 10
   - bookId: 1
-    bookName: CBook1
-    bookIntro: 2222333232323232323223232
-    bookIcon: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+    bookName: "\u7A97\u8FB9\u7684\u5C0F\u8C46\u8C46"
+    bookIntro: "\u8FD9\u662F\u7A97\u8FB9\u7684\u5C0F\u8C46\u8C46"
     bookType: 1
     price: 12
   - bookId: 2
     bookName: Comic
     bookIntro: SDSDSADAWDASDE
-    bookIcon: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
     bookType: 2
     price: 3
   - bookId: 3
     bookName: XXBOOK
     bookIntro: SDSADWADW
-    bookIcon: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
     bookType: 3
     price: 2
   - bookId: 4
     bookName: SADOSIDSABOOKC
     bookIntro: SDSADKLADSKL
-    bookIcon: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
     bookType: 4
+    price: 3
+  - bookId: 5
+    bookName: "\u5927\u6D77"
+    bookIntro: "\u8FD9\u662F\u5927\u6D77"
+    bookType: 1
     price: 3

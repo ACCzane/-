@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemUIManager : MonoBehaviour
+public class ItemUIManager : MonoBehaviour, IImageLoader
 {
     public static ItemUIManager Singleton{get; private set;}
+
+    
 
     [SerializeField] private GameObject bookUIPrefab;
     [SerializeField] private BookTipUI bookTipUI;
 
-    private Dictionary<BookType, Color> bookColors = new Dictionary<BookType,Color>();
+    private Dictionary<BookType, string> bookTypeToSpritePathDict = new Dictionary<BookType,string>();
+    public Dictionary<BookType, string> BookTypeToSpritePathDict => bookTypeToSpritePathDict;
 
     private void OnEnable() {
         if (Singleton != null) return;
@@ -18,12 +21,7 @@ public class ItemUIManager : MonoBehaviour
 
         bookTipUI.gameObject.SetActive(false);
 
-        //初始化字典
-        bookColors[BookType.Literacy] = Color.red;
-        bookColors[BookType.Children] = Color.yellow;
-        bookColors[BookType.Love] = Color.white;
-        bookColors[BookType.Photography] = Color.gray;
-        bookColors[BookType.Science] = Color.blue;
+        InitDict();
     }
 
     /// <summary>
@@ -38,7 +36,9 @@ public class ItemUIManager : MonoBehaviour
         //给bookSlotUI初始化
         bookSlotUI.InitBookSlotUI(bookDetail);
         //TODO:前期没有美术素材，用颜色做区分
-        bookSlotUI.GetComponent<Image>().color = bookColors[bookSlotUI.BookDetail.bookType];
+        // bookSlotUI.GetComponent<Image>().color = bookColors[bookSlotUI.BookDetail.bookType];
+        Sprite targetSprite = ReadSprite(bookDetail.bookType);
+        bookSlotUI.GetComponent<Image>().sprite = targetSprite;
         return bookSlotUI;
     }
 
@@ -48,7 +48,7 @@ public class ItemUIManager : MonoBehaviour
     /// <param name="bookDetail"></param>
     /// <param name="pos"></param>
     /// <param name="show"></param>
-    public void ShowBookTipUIAtWorldPos(BookDetail bookDetail, Vector2 pos, bool show){
+    public void ShowBookTipUIAndFollowSlotUI(BookDetail bookDetail, Transform parent, bool show){
         if(show == false){
             bookTipUI.gameObject.SetActive(false);
             return;
@@ -58,10 +58,32 @@ public class ItemUIManager : MonoBehaviour
 
         bookTipUI.SetupBookTip(bookDetail);
 
+
+        bookTipUI.transform.SetParent(parent);
         bookTipUI.gameObject.SetActive(true);
 
-        Vector2 offsetPos = new Vector2(50,-50);
+        Vector2 offsetPos = new Vector2(40,-50);
         bookTipUI.GetComponent<RectTransform>().
-            position = pos + offsetPos;
+            position = (Vector2)parent.position + offsetPos;
+
+
+        StartCoroutine(bookTipUI.Dissolve(0.4f));
+    }
+
+    public void InitDict()
+    {
+        //初始化字典
+        bookTypeToSpritePathDict[BookType.Literacy] = "进货商店/书图标/red-";
+        bookTypeToSpritePathDict[BookType.Children] = "进货商店/书图标/while-";
+        bookTypeToSpritePathDict[BookType.Love] = "进货商店/书图标/yellow-";
+        bookTypeToSpritePathDict[BookType.Photography] = "进货商店/书图标/red-";
+        bookTypeToSpritePathDict[BookType.Science] = "进货商店/书图标/red-";
+    }
+
+    public Sprite ReadSprite(BookType bookType)
+    {
+        string assetPath = BookTypeToSpritePathDict[bookType];
+        Sprite targetSprite = Resources.Load<Sprite>(assetPath);
+        return targetSprite;
     }
 }

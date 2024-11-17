@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
@@ -25,6 +26,8 @@ namespace BookSelling
         //
         private BookSpawner bookSpawner;
 
+        public bool CanOpen{get; private set;} = true;
+
         private void Awake() {
             bookStorage = GameData.GameSave.bookStorage;
         }
@@ -34,6 +37,9 @@ namespace BookSelling
             for(int i = 0; i < bagSlotAmount; i++){
                 bagSlots[i].index = i;
             }
+            for(int i = 0; i < onSellSlotAmount; i++){
+                onSellSlots[i].index = i;
+            }
             //Toggle默认option0
             SwitchBookType(0);
             //
@@ -41,13 +47,13 @@ namespace BookSelling
         }
 
         private void OnEnable() {
-            EventHandler.AddBookToSell += AddBookToSell;
-            EventHandler.RemoveBookFromSell += RemoveBookFromSell;
+            EventHandler.AddBookToSell += OnAddBookToSell;
+            EventHandler.RemoveBookFromSell += OnRemoveBookFromSell;
         }
 
         private void OnDisable() {
-            EventHandler.AddBookToSell -= AddBookToSell;
-            EventHandler.RemoveBookFromSell -= RemoveBookFromSell;
+            EventHandler.AddBookToSell -= OnAddBookToSell;
+            EventHandler.RemoveBookFromSell -= OnRemoveBookFromSell;
         }
 
         /// <summary>
@@ -71,29 +77,12 @@ namespace BookSelling
         /// 为了暴露给UGUI Toggle组件重构SwitchBookType方法
         /// </summary>
         /// <param name="bookType"></param>
-        public void SwitchBookType(int bookType){
-            switch (bookType)
-            {
-                case 0:
-                    SwitchBookType(BookType.Literacy);
-                    break;
-                case 1:
-                    SwitchBookType(BookType.Children);
-                    break;
-                case 2:
-                    SwitchBookType(BookType.Science);
-                    break;
-                case 3:
-                    SwitchBookType(BookType.Love);
-                    break;
-                case 4:
-                    SwitchBookType(BookType.Photography);
-                    break;
-                default:
-                    //Error
-                    SwitchBookType(BookType.Literacy);
-                    break;
-            }
+        public void SwitchBookType(){
+            int index = (int)currentBookType;
+            index++;
+            index %= 5;
+            
+            SwitchBookType((BookType)index);
         }
 
         /// <summary>
@@ -138,7 +127,7 @@ namespace BookSelling
             UpdateBagPage(pageIndex+1);
         }
 
-        public void AddBookToSell(int index){
+        public void OnAddBookToSell(int index){
             //如果OnSell格子放满了
             if(onSellBookDetails.Count == onSellSlotAmount){
                 //TODO:视觉回馈
@@ -164,7 +153,7 @@ namespace BookSelling
             UpdateOnSellPage();
         }
 
-        public void RemoveBookFromSell(int index){
+        public void OnRemoveBookFromSell(int index){
             bookStorage.booksOnSell.Remove(onSellSlots[index].bookDetail);
             bookStorage.booksInStorage.Add(onSellSlots[index].bookDetail);
 
@@ -184,7 +173,13 @@ namespace BookSelling
 
         public void QuitUIEnterScene(){
             bookSpawner.SpawnBooks(onSellBookDetails);
+            Debug.Log(onSellBookDetails.Count);
             gameObject.SetActive(false);
+
+            //更新数据库，已经送往书架的书不会返回（即使当天没有卖出）
+            //关闭UI打开面板，当天无法再打开
+            // bookStorage.booksOnSell.Clear();
+            CanOpen = false;
         }
         public void EnterUI(BookSpawner bookSpawner){
             this.bookSpawner = bookSpawner;

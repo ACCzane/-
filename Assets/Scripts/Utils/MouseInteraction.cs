@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BookSelling;
 
 public class MouseInteraction : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class MouseInteraction : MonoBehaviour
             if (hit.collider != null)
             {
                 //如果击中书架
-                if(hit.collider.TryGetComponent<BookSelling.BookSpawner>(out BookSelling.BookSpawner bookSpawner)){
+                if(hit.collider.TryGetComponent<BookSpawner>(out BookSpawner bookSpawner)){
                     bookSpawner.OpenBooksBagUI();
                 }
                 //如果击中书籍

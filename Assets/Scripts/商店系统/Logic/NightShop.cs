@@ -4,34 +4,44 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NightShop : MonoBehaviour
 {
+    [SerializeField] private Button Debug_UpdateSlotsButton;
+    [SerializeField] private Button quitButton;
+
     [SerializeField] private BookList_SO bookList_SO;
     private BookStorage bookStorage;
+    private PlayerAsset playerAsset;
     private List<BookDetail> books;
-    public int PlayerCoin{
-        get => bookStorage.playerCoin;
+    public int PlayerCoin
+    {
+        get => playerAsset.money;
         set{
-            bookStorage.playerCoin = value;
+            playerAsset.money = value;
         }
     }
 
     private void Awake() {
         bookStorage = GameData.GameSave.bookStorage;
+        playerAsset = GameData.GameSave.playerAsset;
     }
 
     private void OnEnable() {
         books = new List<BookDetail>();
 
-        EventHandler.AddBookToStorage += AddToStorage;
+        Debug_UpdateSlotsButton.onClick.AddListener(UpdateNightShop);
+        quitButton.onClick.AddListener(SwitchScene);
+
+        EventHandler.AddBookToStorage += OnAddBookToStorage;
     }
 
     private void OnDisable() {
-        EventHandler.AddBookToStorage -= AddToStorage;
+        EventHandler.AddBookToStorage -= OnAddBookToStorage;
     }
 
-    private void AddToStorage(BookSlotUI book)
+    private void OnAddBookToStorage(BookSlotUI book)
     {
         //如果玩家金币不足
         if(PlayerCoin < book.BookDetail.price){
@@ -42,6 +52,7 @@ public class NightShop : MonoBehaviour
         //数据层：BookStorage_SO文件更新、金币更新
         bookStorage.booksInStorage.Add(book.BookDetail);
         PlayerCoin -= book.BookDetail.price;
+        EventHandler.CallUpdatePlayerMoney(PlayerCoin);
         //TODO:UI层：关闭书的UI显示，显示扣钱
         book.HideInScene();
     }
@@ -79,4 +90,9 @@ public class NightShop : MonoBehaviour
         return books[randomNum];
     }
 
+    public void SwitchScene(){
+        if(SceneLoadManager.Singleton == null){Debug.LogError("SceneLoadManager Miss!"); return;}
+
+        SceneLoadManager.Singleton.LoadScene("卖书场景");
+    }
 }

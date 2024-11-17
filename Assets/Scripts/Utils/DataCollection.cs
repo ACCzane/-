@@ -16,6 +16,8 @@ public class BookDetail
     // public Sprite bookIcon;
     public BookType bookType;
     public int price;
+    //售出价值/购入价值
+    public float sellRatio = 1.5f;
 }
 
 /// <summary>
@@ -26,7 +28,7 @@ public class NPCRequest{
     /// <summary>
     /// 好感度基础值
     /// </summary>
-    public int likeBase;
+    public int likeBase = 1;
     public string requestText;
     public RequestType requestType;
     public BookType bookType;

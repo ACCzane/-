@@ -10,7 +10,11 @@ public class BookHandler : MonoBehaviour
     /// <summary>
     /// 背包_书籍
     /// </summary>
-    private BookStorage bag_Book = GameData.GameSave.bookStorage;
+    private BookStorage bag_Book;
+
+    private void Awake() {
+        bag_Book = GameData.GameSave.bookStorage;
+    }
 
     /// <summary>
     /// 将book添加到背包(已废)

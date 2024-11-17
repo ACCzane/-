@@ -7,18 +7,18 @@ using UnityEngine.EventSystems;
 public class ShowBookTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private BookSlotUI bookSlotUI;
-
+    
     private void OnEnable() {
         bookSlotUI = GetComponent<BookSlotUI>();    
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ItemUIManager.Singleton.ShowBookTipUIAtWorldPos(bookSlotUI.BookDetail, transform.position, true);
+        ItemUIManager.Singleton.ShowBookTipUIAndFollowSlotUI(bookSlotUI.BookDetail, transform, true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        ItemUIManager.Singleton.ShowBookTipUIAtWorldPos(null, Vector2.zero, false);
+        ItemUIManager.Singleton.ShowBookTipUIAndFollowSlotUI(null, null, false);
     }
 }

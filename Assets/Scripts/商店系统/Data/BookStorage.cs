@@ -7,11 +7,6 @@ using UnityEngine;
 public class BookStorage
 {
     /// <summary>
-    /// 玩家金钱，懒得单独创建了，一起放在这个SO里
-    /// </summary>
-    public int playerCoin = 1000;
-    
-    /// <summary>
     /// 存储在仓库中的书
     /// </summary>
     public List<BookDetail> booksInStorage = new List<BookDetail>();

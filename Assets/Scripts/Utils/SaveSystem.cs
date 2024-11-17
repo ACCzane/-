@@ -81,6 +81,9 @@ public class GameData
 [System.Serializable]
 public class GameSave
 {
+    public BookStorage bookStorage = new();
+    public PlayerAsset playerAsset = new();
+
     public List<Item> items = new();
 
     public List<(string, int)> furnitures = new();

@@ -17,11 +17,29 @@ namespace BookSelling
         public int index;
         public BookDetail bookDetail;
 
+
+        private Dictionary<BookType, string> bookTypeToSpritePathDict = new Dictionary<BookType,string>();
+
+
+        private void OnEnable() {
+            //初始化字典
+            bookTypeToSpritePathDict[BookType.Literacy] = "进货商店/书图标/red-";
+            bookTypeToSpritePathDict[BookType.Children] = "进货商店/书图标/while-";
+            bookTypeToSpritePathDict[BookType.Love] = "进货商店/书图标/yellow-";
+            bookTypeToSpritePathDict[BookType.Photography] = "进货商店/书图标/red-";
+            bookTypeToSpritePathDict[BookType.Science] = "进货商店/书图标/red-";
+        }
+
+
         public void UpdateSlot(BookDetail bookDetail){
             this.bookDetail = bookDetail;
             gameObject.SetActive(true);
             bookName.text = bookDetail.bookName;
-            // icon.sprite = bookDetail.bookIcon;
+
+            string assetPath = bookTypeToSpritePathDict[bookDetail.bookType];
+            Sprite targetSprite = Resources.Load<Sprite>(assetPath);
+
+            icon.sprite = targetSprite;
         }
         public void SetDefault(){
             bookDetail = null;

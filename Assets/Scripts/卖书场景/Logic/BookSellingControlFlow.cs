@@ -14,9 +14,39 @@ namespace BookSelling
 
         private bool hasNPC;
 
+        private PlayerAsset playerAsset;
+
+
+        private void OnEnable() {
+            EventHandler.NPCRemove += OnNPCRemove;
+            EventHandler.Trade += OnTrade;
+        }   
+
+        private void OnDisable() {
+            EventHandler.NPCRemove -= OnNPCRemove;
+            EventHandler.Trade -= OnTrade;
+        }
+
+        private void Start() {
+            playerAsset = GameData.GameSave.playerAsset;
+
+            EventHandler.CallUpdatePlayerMoney(playerAsset.money);
+            EventHandler.CallUpdateTimeUI(8, 0);
+        }
+
         private void Update() {
             //TODO:随机时间来客
-            if(TimeManager.Singleton.hour == 8 && !hasNPC){
+            if(TimeManager.Singleton.hour == 8 && TimeManager.Singleton.minute == 30 && !hasNPC){
+                NPCBuyBook();
+                hasNPC = true;
+            }
+
+            if(TimeManager.Singleton.hour == 10 && TimeManager.Singleton.minute == 30 && !hasNPC){
+                NPCBuyBook();
+                hasNPC = true;
+            }
+
+            if(TimeManager.Singleton.hour == 12 && TimeManager.Singleton.minute == 30 && !hasNPC){
                 NPCBuyBook();
                 hasNPC = true;
             }
@@ -32,8 +62,21 @@ namespace BookSelling
             int randomIndex = Random.Range(0, npcRequest_SO.normalNPCRequests.Count);
             NPCRequest npcRequest = npcRequest_SO.normalNPCRequests[randomIndex];
 
-            EventHandler.CallNPCRequestForBook(npcRequest);
+            EventHandler.CallNPCSpawn(npcRequest);
         }
+
+
+        private void OnNPCRemove()
+        {
+            hasNPC = false;
+        }
+
+        private void OnTrade(int gainedMoney, int elfCoin, int npcFavorability)
+        {
+            playerAsset.money += gainedMoney;
+            EventHandler.CallUpdatePlayerMoney(playerAsset.money);
+        }
+
     }
 
 }
