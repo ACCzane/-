@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5262281162101664003}
   - component: {fileID: 5078961202731824695}
   - component: {fileID: 2207320908841835725}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 138653980092764813}
   - component: {fileID: 2254128647415714092}
   - component: {fileID: 3455869230308139610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 6832458690841309585}
   - component: {fileID: 6995464366235612705}
   - component: {fileID: 6685194815729290163}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: InfoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
