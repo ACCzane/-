@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/UIEditorBuilder/BookData.uss?fileID=7433441132597879392&amp;guid=6170b4c932002ac4ca81a9e0c1d5a3cb&amp;type=3#BookData" />
+    <ui:VisualElement name="BookListPanel" style="flex-grow: 1; width: 30%; flex-direction: column;">
+        <ui:ScrollView name="ScrollView" mode="Vertical">
+            <ui:VisualElement name="BookShortInfo" style="flex-grow: 1; height: 60px; width: 100%; visibility: visible; overflow: visible; margin-top: 5px; margin-right: 2px; margin-bottom: 5px; margin-left: 2px;" />
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>

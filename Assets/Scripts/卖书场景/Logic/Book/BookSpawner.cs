@@ -11,7 +11,6 @@ public class BookSpawner : MonoBehaviour
         [SerializeField] private BooksBagUI booksBagUI;
         [SerializeField] private BookTipUI bookTipUI;
         [Header("参数")]
-        [SerializeField] private float gap;
         [SerializeField] private Vector2 startLocalPos;
         private Vector2 startPos => startLocalPos + new Vector2(transform.position.x, transform.position.y);
         private List<BookDetail> books;
@@ -41,14 +40,21 @@ public class BookSpawner : MonoBehaviour
             }
             bookItems.Clear();
 
+
+            Vector2 newPos = new Vector2(startPos.x, startPos.y);
             for(int i = 0; i < books.Count; i++){
-                Vector2 pos = new Vector2(startPos.x + gap * i, startPos.y);
-                BookItem bookItem = Instantiate(bookPrefab, pos, Quaternion.identity).GetComponent<BookItem>();
+                Debug.Log(newPos);
+
+                BookItem bookItem = Instantiate(bookPrefab, newPos, Quaternion.identity).GetComponent<BookItem>();
 
                 //初始化bookGO
                 bookItem.Init(books[i], bookTipUI);
 
                 bookItems.Add(bookItem);
+
+                //newPos.x自增
+                newPos.x += bookItem.ColliderSize.x;
+
             }
         }
 
@@ -95,7 +101,6 @@ public class BookSpawner : MonoBehaviour
 
         private void OnDrawGizmosSelected() {
             Gizmos.DrawWireSphere(startPos, 0.1f);
-            Gizmos.DrawWireSphere(new Vector2(startPos.x + gap, startPos.y), 0.1f);
         }
 
         public void OpenBooksBagUI()

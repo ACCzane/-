@@ -151,9 +151,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookPrefab: {fileID: 5315925721862950719, guid: 9034f73c9def24635951efdbd4159da9, type: 3}
-  booksBagUI: {fileID: 7162219795506016563, guid: 42a4c326406564c51bf3088be4a5673a, type: 3}
-  gap: 0.5
-  startLocalPos: {x: -1.2, y: 0}
+  booksBagUI: {fileID: 0}
+  bookTipUI: {fileID: 0}
+  startLocalPos: {x: -1, y: 0.5}
 --- !u!61 &6941010227054887956
 BoxCollider2D:
   m_ObjectHideFlags: 0

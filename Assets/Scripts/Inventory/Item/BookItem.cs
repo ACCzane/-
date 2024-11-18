@@ -20,6 +20,9 @@ public class BookItem : MonoBehaviour, IImageLoader
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
 
+    //缓存大小信息
+    public Vector2 ColliderSize{get; private set;} = new Vector2(0, 0);
+
     public BookDetail BookDetail{get; private set;}
     public bool IsSelected{get; private set;} = false;
 
@@ -135,6 +138,8 @@ public class BookItem : MonoBehaviour, IImageLoader
             (bookSprite.border.x - bookSprite.border.z) / (2*bookSprite.pixelsPerUnit),
             (bookSprite.border.y - bookSprite.border.w) / (2*bookSprite.pixelsPerUnit)
         );
+
+        ColliderSize = new Vector2(boxCollider2D.size.x, boxCollider2D.size.y);
     }
 
     public void InitDict()
@@ -142,7 +147,6 @@ public class BookItem : MonoBehaviour, IImageLoader
         //初始化字典
         bookTypeToSpritePathDict[BookType.Literacy] = "售卖/售卖/book-白色1";
         bookTypeToSpritePathDict[BookType.Children] = "售卖/售卖/book-蓝色1";
-        bookTypeToSpritePathDict[BookType.Love] = "售卖/售卖/book-黄色1";
         bookTypeToSpritePathDict[BookType.Photography] = "售卖/售卖/book-黄色2";
         bookTypeToSpritePathDict[BookType.Science] = "售卖/售卖/book-黄色2";
     }

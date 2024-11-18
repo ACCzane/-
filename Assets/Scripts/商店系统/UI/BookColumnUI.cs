@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BookColumnUI : MonoBehaviour
 {
     [SerializeField] private Transform bookParent;
+    [SerializeField] public bool isSpecial = false;
     public Transform BookParent{
         get{return bookParent;}
     }

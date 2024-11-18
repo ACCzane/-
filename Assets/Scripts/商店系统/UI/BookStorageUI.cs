@@ -14,7 +14,6 @@ public class BookStorageUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bookAmount2;
     [SerializeField] private TextMeshProUGUI bookAmount3;
     [SerializeField] private TextMeshProUGUI bookAmount4;
-    [SerializeField] private TextMeshProUGUI bookAmount5;
 
     private void Awake() {
         bookStorage = GameData.GameSave.bookStorage;
@@ -34,10 +33,9 @@ public class BookStorageUI : MonoBehaviour
 
     private void UpdateBookStorageUI()
     {
-        bookAmount1.text = "Literacy"+bookStorage.booksInStorage.Where(book => book.bookType == BookType.Literacy).ToList().Count.ToString();
-        bookAmount2.text = "Children"+bookStorage.booksInStorage.Where(book => book.bookType == BookType.Children).ToList().Count.ToString();
-        bookAmount3.text = "Science"+bookStorage.booksInStorage.Where(book => book.bookType == BookType.Science).ToList().Count.ToString();
-        bookAmount4.text = "Love"+bookStorage.booksInStorage.Where(book => book.bookType == BookType.Love).ToList().Count.ToString();
-        bookAmount5.text = "Photo"+bookStorage.booksInStorage.Where(book => book.bookType == BookType.Photography).ToList().Count.ToString();
+        bookAmount1.text = "文学小说"+bookStorage.booksInStorage.Where(book => book.bookType == BookType.Literacy).ToList().Count.ToString();
+        bookAmount2.text = "儿童读物"+bookStorage.booksInStorage.Where(book => book.bookType == BookType.Children).ToList().Count.ToString();
+        bookAmount3.text = "科学读物"+bookStorage.booksInStorage.Where(book => book.bookType == BookType.Science).ToList().Count.ToString();
+        bookAmount4.text = "摄影绘画集"+bookStorage.booksInStorage.Where(book => book.bookType == BookType.Photography).ToList().Count.ToString();
     }
 }

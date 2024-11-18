@@ -73,11 +73,10 @@ public class ItemUIManager : MonoBehaviour, IImageLoader
     public void InitDict()
     {
         //初始化字典
-        bookTypeToSpritePathDict[BookType.Literacy] = "进货商店/书图标/red-";
-        bookTypeToSpritePathDict[BookType.Children] = "进货商店/书图标/while-";
-        bookTypeToSpritePathDict[BookType.Love] = "进货商店/书图标/yellow-";
+        bookTypeToSpritePathDict[BookType.Literacy] = "进货商店/书图标/while-";
+        bookTypeToSpritePathDict[BookType.Children] = "进货商店/书图标/blue-大海";
         bookTypeToSpritePathDict[BookType.Photography] = "进货商店/书图标/red-";
-        bookTypeToSpritePathDict[BookType.Science] = "进货商店/书图标/red-";
+        bookTypeToSpritePathDict[BookType.Science] = "进货商店/书图标/yellow-";
     }
 
     public Sprite ReadSprite(BookType bookType)

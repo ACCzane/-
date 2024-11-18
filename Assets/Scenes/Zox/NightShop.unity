@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &732163208 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4959671075284434355, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
-  m_PrefabInstance: {fileID: 489426640680244804}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1033068560
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,17 +235,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1668832182 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3714391825497924098, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
-  m_PrefabInstance: {fileID: 489426640680244804}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2085556253
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,10 +480,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3714391825497924098, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3858621756973147046, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -615,30 +589,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5300166016580441329, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5939291147862553543, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
-      propertyPath: quitButton
-      value: 
-      objectReference: {fileID: 732163208}
-    - target: {fileID: 5939291147862553543, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
-      propertyPath: Debug_UpdateSlotsButton
-      value: 
-      objectReference: {fileID: 1668832182}
-    - target: {fileID: 5940186540555560026, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5940186540555560026, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5940186540555560026, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5940186540555560026, guid: 40ee15b4cb1f160478a97114fa226c5c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

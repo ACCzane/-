@@ -33,6 +33,11 @@ public class NightShopUI : MonoBehaviour
         {
             foreach (var bookDetail in bookDetails)
             {
+                if(bookColumn.isSpecial){
+                    //不是书籍，而是别的（等策划）
+                    break;
+                }
+
                 if(bookDetail.bookType == bookColumn.BookType)
                     bookColumn.GenerateBookUI(bookDetail);
             }

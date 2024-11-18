@@ -8,11 +8,10 @@ public enum InteractableObjectType{
 }
 
 public enum BookType{
-    Literacy,//Red
-    Children,//Yellow
-    Science,//Blue
-    Love,//White
-    Photography//Gray
+    Literacy,//white
+    Children,//blue
+    Science,//red
+    Photography//yellow
 }
 
 public enum SlotType{

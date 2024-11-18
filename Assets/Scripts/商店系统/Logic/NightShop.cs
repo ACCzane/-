@@ -41,6 +41,10 @@ public class NightShop : MonoBehaviour
         EventHandler.AddBookToStorage -= OnAddBookToStorage;
     }
 
+    private void Start() {
+        EventHandler.CallUpdatePlayerMoney(playerAsset.money);
+    }
+
     private void OnAddBookToStorage(BookSlotUI book)
     {
         //如果玩家金币不足
