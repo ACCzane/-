@@ -172,13 +172,15 @@ namespace BookSelling
         }
 
         public void QuitUIEnterScene(){
-            bookSpawner.SpawnBooks(onSellBookDetails);
-            Debug.Log(onSellBookDetails.Count);
+            List<BookDetail> books = new List<BookDetail>(onSellBookDetails);
+
+            bookSpawner.SpawnBooks(books);
             gameObject.SetActive(false);
 
             //更新数据库，已经送往书架的书不会返回（即使当天没有卖出）
             //关闭UI打开面板，当天无法再打开
-            // bookStorage.booksOnSell.Clear();
+
+            bookStorage.booksOnSell.Clear();
             CanOpen = false;
         }
         public void EnterUI(BookSpawner bookSpawner){

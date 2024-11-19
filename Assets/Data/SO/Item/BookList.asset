@@ -14,32 +14,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   books:
   - bookId: 0
-    bookName: LBook
-    bookIntro: HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+    bookName: "\u8001\u4EBA\u4E0E\u6D77"
+    bookIntro: "\u8FD9\u662F\u4E00\u672C\u8BB2\u8FF0\u4E86\u8001\u4EBA\u5728\u6D77\u4E0A\u4E0E\u9CA8\u9C7C\u640F\u6597\u7684\u4E66\u7C4D"
     bookType: 0
     price: 10
+    sellRatio: 1.5
   - bookId: 1
     bookName: "\u7A97\u8FB9\u7684\u5C0F\u8C46\u8C46"
-    bookIntro: "\u8FD9\u662F\u7A97\u8FB9\u7684\u5C0F\u8C46\u8C46"
+    bookIntro: "\u4E00\u6B3E\u6DF1\u53D7\u513F\u7AE5\u559C\u7231\u7684\u8BFB\u7269"
     bookType: 1
     price: 12
+    sellRatio: 1.5
   - bookId: 2
-    bookName: Comic
-    bookIntro: SDSDSADAWDASDE
-    bookType: 2
-    price: 3
+    bookName: "\u8759\u8760\u4FA0"
+    bookIntro: "DC\u6F2B\u753B\u7684\u5F00\u5C71\u4E4B\u4F5C"
+    bookType: 1
+    price: 7
+    sellRatio: 1.5
   - bookId: 3
-    bookName: XXBOOK
-    bookIntro: SDSADWADW
-    bookType: 3
-    price: 2
+    bookName: "\u65F6\u95F4\u7B80\u53F2"
+    bookIntro: "\u63A2\u7D22\u5B87\u5B99\u7684\u5927\u4E00\u7EDF"
+    bookType: 2
+    price: 20
+    sellRatio: 1.5
   - bookId: 4
-    bookName: SADOSIDSABOOKC
-    bookIntro: SDSADKLADSKL
-    bookType: 4
-    price: 3
+    bookName: "\u76F8\u5BF9\u8BBA"
+    bookIntro: "\u636E\u8BF4\u4E16\u754C\u4E0A\u53EA\u6709\u4E0D\u523020\u4EBA\u771F\u6B63\u7406\u89E3\u4E86\u8FD9\u672C\u8457\u4F5C"
+    bookType: 2
+    price: 30
+    sellRatio: 1.5
   - bookId: 5
     bookName: "\u5927\u6D77"
-    bookIntro: "\u8FD9\u662F\u5927\u6D77"
-    bookType: 1
-    price: 3
+    bookIntro: "\u4E00\u6B3E\u5927\u6D77\u7684\u6444\u5F71\u96C6"
+    bookType: 3
+    price: 10
+    sellRatio: 1.5

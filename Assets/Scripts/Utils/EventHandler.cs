@@ -11,7 +11,7 @@ public static class EventHandler
         TransferScene?.Invoke();
     }
 
-    //SO数据处理
+    //数据处理
     public static event Action UpdateBag_Book;
     public static void CallUpdateBag_Book(){
         UpdateBag_Book?.Invoke();
@@ -105,6 +105,11 @@ public static class EventHandler
     public static Action<int, int, int> Trade;
     public static void CallTrade(int gainedMoney, int elfCoin, int npcFavorability){
         Trade?.Invoke(gainedMoney, elfCoin, npcFavorability);
+    }
+
+    public static Action<int> PlayerLikesChanged;
+    public static void CallPlayerLikesChanged(int playerLikes){
+        PlayerLikesChanged?.Invoke(playerLikes);
     }
     #endregion
 }

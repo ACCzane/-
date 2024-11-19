@@ -11,16 +11,23 @@ namespace BookSelling
         [SerializeField] private TMP_Text timeText;
         [SerializeField] private TMP_Text coinText;
         [SerializeField] private Image NPCWaitBar;
-        [SerializeField] private Image likeBar;
+        [SerializeField] private TMP_Text likeText;
 
         private void OnEnable() {
             EventHandler.UpdateTimeUI += UpdateTimeUI;
             EventHandler.UpdatePlayerMoney += OnUpdatePlayerMoney;
+            EventHandler.PlayerLikesChanged += OnPlayerLikesChanged;
         }
 
         private void OnDisable() {
             EventHandler.UpdateTimeUI -= UpdateTimeUI;
             EventHandler.UpdatePlayerMoney -= OnUpdatePlayerMoney;
+            EventHandler.PlayerLikesChanged -= OnPlayerLikesChanged;
+        }
+
+        private void OnPlayerLikesChanged(int playerLikes)
+        {
+            likeText.text = playerLikes.ToString();
         }
 
         private void OnUpdatePlayerMoney(int playerMoney)

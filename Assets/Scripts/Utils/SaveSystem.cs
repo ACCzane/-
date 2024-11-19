@@ -65,7 +65,7 @@ public class GameData
     }
     public static void Save()
     {
-        Debug.Log("Saving...");
+        Debug.Log("Saving to " + Application.persistentDataPath);
 
         string json = JsonConvert.SerializeObject(Current, SerializeSettings);
         File.WriteAllText(file, json);

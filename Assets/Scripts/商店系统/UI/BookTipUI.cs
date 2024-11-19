@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BookTipUI : MonoBehaviour
 {
@@ -14,6 +15,16 @@ public class BookTipUI : MonoBehaviour
 
     [SerializeField] private Material material;
     private static int dissolveValue = Shader.PropertyToID("_DissolveAmount");
+
+
+    private Transform targetFllowingTrans;
+    private Vector2 offset = new();
+
+    private void Update() {
+        if(targetFllowingTrans!=null){
+            transform.position = targetFllowingTrans.position + (Vector3)offset;
+        }
+    }
 
 
     public void SetupBookTip(BookDetail bookDetail){
@@ -33,5 +44,10 @@ public class BookTipUI : MonoBehaviour
             material.SetFloat(dissolveValue, 1-lerpedAmount);
             yield return null;
         }
+    }
+
+    public void SetFollow(Transform target, Vector2 offset){
+        targetFllowingTrans = target;
+        this.offset = offset;
     }
 }

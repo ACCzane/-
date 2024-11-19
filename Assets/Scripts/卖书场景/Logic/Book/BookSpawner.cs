@@ -13,7 +13,7 @@ public class BookSpawner : MonoBehaviour
         [Header("参数")]
         [SerializeField] private Vector2 startLocalPos;
         private Vector2 startPos => startLocalPos + new Vector2(transform.position.x, transform.position.y);
-        private List<BookDetail> books;
+        private List<BookDetail> books = new();
         private List<BookItem> bookItems = new List<BookItem>();
 
         private void OnEnable() {
@@ -29,7 +29,6 @@ public class BookSpawner : MonoBehaviour
 
         public void SpawnBooks(List<BookDetail> books){
             this.books = books;
-            Debug.Log(books.Count);
             foreach (var item in bookItems)
             {
                 //BookItem的子物体有UI、可能有BookTip，为了避免BookTip被不小心随物体删除，要解除它们的父子关系绑定
@@ -73,8 +72,8 @@ public class BookSpawner : MonoBehaviour
         }
 
         public void OnClickAcceptButton(BookDetail bookDetail){
-            Debug.Log(books.Count);
             //重置书架上的书，更新数据
+            Debug.Log(books.Count);
             foreach(var book in books){
                 if(book == bookDetail){
                     Debug.Log(book);
@@ -87,7 +86,7 @@ public class BookSpawner : MonoBehaviour
             SpawnBooks(books);
         }
 
-        private void UpdateBooks(){
+        private void UpdateBookItemInScene(){
             foreach (BookItem bookItem in bookItems)
             {
                 if(bookItem.IsSelected){

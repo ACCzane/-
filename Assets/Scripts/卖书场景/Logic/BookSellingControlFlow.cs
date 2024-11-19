@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BookSelling
 {
@@ -11,6 +12,8 @@ namespace BookSelling
 
         [Header("引用")]
         [SerializeField] private NPCRequest_SO npcRequest_SO;
+        [SerializeField] private Button quitButton;
+        [SerializeField] private Button startButton;
 
         private bool hasNPC;
 
@@ -32,6 +35,9 @@ namespace BookSelling
 
             EventHandler.CallUpdatePlayerMoney(playerAsset.money);
             EventHandler.CallUpdateTimeUI(8, 0);
+
+            quitButton.onClick.AddListener(QuitScene);
+            startButton.onClick.AddListener(StartSellBook);
         }
 
         private void Update() {
@@ -54,6 +60,7 @@ namespace BookSelling
 
         public void StartSellBook(){
             StartCoroutine(TimeManager.Singleton.StartNewPeriord(8,19,speed));
+            startButton.gameObject.SetActive(false);
         }
 
         public void NPCBuyBook(){
@@ -74,7 +81,13 @@ namespace BookSelling
         private void OnTrade(int gainedMoney, int elfCoin, int npcFavorability)
         {
             playerAsset.money += gainedMoney;
+            playerAsset.likes += npcFavorability;
             EventHandler.CallUpdatePlayerMoney(playerAsset.money);
+            EventHandler.CallPlayerLikesChanged(playerAsset.likes);
+        }
+
+        public void QuitScene(){
+            SceneLoadManager.Singleton.LoadScene("NightShop");
         }
 
     }

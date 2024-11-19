@@ -59,12 +59,11 @@ public class ItemUIManager : MonoBehaviour, IImageLoader
         bookTipUI.SetupBookTip(bookDetail);
 
 
-        bookTipUI.transform.SetParent(parent);
+        bookTipUI.SetFollow(parent, new Vector2(40,-50));
         bookTipUI.gameObject.SetActive(true);
 
-        Vector2 offsetPos = new Vector2(40,-50);
-        bookTipUI.GetComponent<RectTransform>().
-            position = (Vector2)parent.position + offsetPos;
+        // bookTipUI.GetComponent<RectTransform>().
+        //     position = (Vector2)parent.position + offsetPos;
 
 
         StartCoroutine(bookTipUI.Dissolve(0.4f));

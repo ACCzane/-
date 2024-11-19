@@ -124,6 +124,7 @@ namespace BookSelling
 
 
         public void OnOpenAcceptButton(BookDetail book, bool isOpen){
+
             if(isOpen){
                 targetBook = book;
                 acceptButton.gameObject.SetActive(true);
@@ -133,6 +134,8 @@ namespace BookSelling
             else{
                 acceptButton.gameObject.SetActive(false);
             }
+
+            Debug.Log(targetBook.bookName);
         }
 
         private void OnClickAcceptButton(BookDetail bookDetail)
