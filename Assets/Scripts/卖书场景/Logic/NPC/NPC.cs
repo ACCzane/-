@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,8 @@ namespace BookSelling
         private Vector2 startPos;
         private Vector2 endPos;
         private float npcWalkSpeed;
+        private Vector3 UIPanelScale_Small;
+        private Vector3 UIPanelScale_normal;
 
         enum state{
             WalkIn,
@@ -46,7 +49,10 @@ namespace BookSelling
             EventHandler.ClickAcceptButton -= OnClickAcceptButton;
         }
 
-        
+        private void Start() {
+            UIPanelScale_normal = UIPanel.transform.localScale;
+            UIPanelScale_Small = UIPanel.transform.localScale * 0.6f;
+        }
 
         private void Update() {
             if(currentState == state.Wait){
@@ -105,11 +111,29 @@ namespace BookSelling
             currentState = state.Wait;
             timer = 0;
 
+            
             UIPanel.SetActive(true);
-            textMeshPro.text = npcRequest.requestText;
+            UIPanel.transform.DOPunchScale(UIPanelScale_Small,0.5f,10,1f).OnComplete(() => StartCoroutine(SetText(textMeshPro, npcRequest.requestText)));
+
+            // textMeshPro.text = npcRequest.requestText;
 
             acceptButton.gameObject.SetActive(false);
             rejectButton.gameObject.SetActive(true);
+        }
+
+        private IEnumerator SetText(TMP_Text textContainer, string targetText){
+            textContainer.text = "";
+
+            for(int i = 0; i < targetText.Count(); i++){
+                textContainer.text += targetText[i];
+
+                if(Input.GetMouseButton(0)){
+                    textContainer.text = targetText;
+                    yield break;
+                }
+
+                yield return new WaitForSeconds(0.1f);
+            }
         }
 
         private void DestorySelf(){
@@ -140,6 +164,7 @@ namespace BookSelling
 
         private void OnClickAcceptButton(BookDetail bookDetail)
         {
+            //npcFavorability : 0代表愤怒，1代表正常，2以上代表高兴
             int npcFavorability = 0;
             int elfCoin = 0;
 

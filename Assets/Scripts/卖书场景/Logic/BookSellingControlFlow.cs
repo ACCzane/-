@@ -34,6 +34,7 @@ namespace BookSelling
             playerAsset = GameData.GameSave.playerAsset;
 
             EventHandler.CallUpdatePlayerMoney(playerAsset.money);
+            EventHandler.CallPlayerLikesChanged(playerAsset.likes);
             EventHandler.CallUpdateTimeUI(8, 0);
 
             quitButton.onClick.AddListener(QuitScene);

@@ -24,3 +24,10 @@ public enum RequestType{
     ByName,
     ByDescription
 }
+
+public enum NPCMood
+{
+    happy,
+    normal,
+    mad
+}
