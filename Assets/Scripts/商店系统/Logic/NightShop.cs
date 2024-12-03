@@ -97,6 +97,6 @@ public class NightShop : MonoBehaviour
     public void SwitchScene(){
         if(SceneLoadManager.Singleton == null){Debug.LogError("SceneLoadManager Miss!"); return;}
 
-        SceneLoadManager.Singleton.LoadScene("卖书场景");
+        SceneLoadManager.Singleton.LoadScene("大厅");
     }
 }

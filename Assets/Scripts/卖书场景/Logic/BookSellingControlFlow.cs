@@ -88,7 +88,7 @@ namespace BookSelling
         }
 
         public void QuitScene(){
-            SceneLoadManager.Singleton.LoadScene("NightShop");
+            SceneLoadManager.Singleton.LoadScene("大厅");
         }
 
     }
