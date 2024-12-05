@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Zox/NightShop.unity
-    guid: 86bae7b7a9453487e87867e4e70f3384
-  - enabled: 1
     path: "Assets/Scenes/\u5927\u5385.unity"
     guid: 2a3255ff8f125dd4c96f6d8ad8fb8dfe
+  - enabled: 1
+    path: Assets/Scenes/Zox/NightShop.unity
+    guid: 86bae7b7a9453487e87867e4e70f3384
   - enabled: 1
     path: "Assets/Scenes/Zox/\u5356\u4E66\u573A\u666F.unity"
     guid: ed1127b0f504e4512b4982c072473615

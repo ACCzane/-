@@ -7,16 +7,19 @@ using UnityEngine;
 
 
 
+/// <summary>
+/// 游戏数据总控
+/// </summary>
 public class GameData
 {
     [JsonRequired]
-    private GameSave[] gameSaves;
+    private GameSave[] gameSaves;                   //多个游戏具体存档
 
-    public static int index;
-    public static readonly GameData Current;
+    public static int index;                        //存档Index
+    public static readonly GameData Current;        //当前存档
     public static Action OnSaveChanged;
 
-    public static GameSave GameSave
+    public static GameSave GameSave                 //存档的Getter和Setter
     {
         get
         {
@@ -41,7 +44,7 @@ public class GameData
         // TypeNameHandling = TypeNameHandling.Auto,
     };
 
-    public static bool firstBoot;
+    public static bool firstBoot;                   //第一次运行游戏存储
     static GameData()
     {
         if (File.Exists(file))
@@ -78,6 +81,10 @@ public class GameData
     }
 }
 
+
+/// <summary>
+/// 游戏存档中具体存放的数据
+/// </summary>
 [System.Serializable]
 public class GameSave
 {
