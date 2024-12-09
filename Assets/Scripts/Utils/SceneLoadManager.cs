@@ -8,10 +8,15 @@ public class SceneLoadManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Singleton == null){
-            Singleton = this;
+
+        if (Singleton != null && Singleton != this) 
+        {
+            Debug.LogWarning("destroy instance");
+            Destroy(gameObject);
+            return;
         }
 
+        Singleton = this;
         DontDestroyOnLoad(gameObject);
     }
 
