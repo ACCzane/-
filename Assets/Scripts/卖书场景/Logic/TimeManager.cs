@@ -32,6 +32,7 @@ public class TimeManager : MonoBehaviour
         day++;
         this.hour = hour;
         minute = 0;
+        isCountingTime = true;
     }
 
     /// <summary>
@@ -78,6 +79,11 @@ public class TimeManager : MonoBehaviour
             }
 
             EventHandler.UpdateTimeUI(hour, minute);
+
+            if(hour >= 19)
+            {
+                isCountingTime = false;
+            }
         }
     }
 
