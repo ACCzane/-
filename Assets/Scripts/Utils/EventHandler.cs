@@ -7,7 +7,7 @@ using UnityEngine;
 public static class EventHandler
 {
     public static event Action TransferScene;
-    public static void CallinteractType(){
+    public static void CallTransferScene(){
         TransferScene?.Invoke();
     }
 

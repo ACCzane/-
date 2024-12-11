@@ -17,6 +17,7 @@ namespace BookSelling
             EventHandler.UpdateTimeUI += UpdateTimeUI;
             EventHandler.UpdatePlayerMoney += OnUpdatePlayerMoney;
             EventHandler.PlayerLikesChanged += OnPlayerLikesChanged;
+            EventHandler.CallTransferScene();
         }
 
         private void OnDisable() {

@@ -26,6 +26,7 @@ public class TimeManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         isCountingTime = false;
         EventHandler.UpdateTimeUI += CheckTimer;
+        EventHandler.TransferScene += FleshTimeUI;
     }
 
     public void StartNewDay(int hour){
@@ -87,5 +88,6 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    private void FleshTimeUI() => EventHandler.UpdateTimeUI(hour, minute);
     private void CheckTimer(int a,int b) { }//空函数，用来确保订阅非空
 }

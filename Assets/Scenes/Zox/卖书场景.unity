@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43d2e58332764b73b92e4ab71e35094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   npcRequest_SO: {fileID: 11400000, guid: a80e45d0e11814228a97d5ee42fe8962, type: 2}
   quitButton: {fileID: 798031440}
   startButton: {fileID: 1106181024}

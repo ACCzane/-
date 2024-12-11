@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BedRoom 
-{    
-    public class BedRoom : MonoBehaviour
+namespace Bedroom 
+{     
+    public class BedroomButton : MonoBehaviour
     {
         [Header("ÒýÓÃ")]
         [SerializeField] private Button quitButton;
-        [SerializeField] private Button bedButton;
+        [SerializeField] private Button nextButton;
 
-        private void Start()
+        private void OnEnable()
         {
             quitButton.onClick.AddListener(QuitScene);
-            bedButton.onClick.AddListener(GoNextDay);
+            nextButton.onClick.AddListener(GoNextDay);
+        }
+
+        private void OnDisable()
+        {
+            quitButton.onClick.RemoveAllListeners();
+            nextButton.onClick.RemoveAllListeners();
         }
 
         public void GoNextDay()
@@ -25,4 +31,3 @@ namespace BedRoom
     }
 
 }
-
