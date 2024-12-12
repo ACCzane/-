@@ -60,7 +60,8 @@ namespace BookSelling
         }
 
         public void StartSellBook(){
-            StartCoroutine(TimeManager.Singleton.StartNewPeriord(8,19,speed));
+            //StartCoroutine(TimeManager.Singleton.StartNewPeriord(8,19,speed));
+            TimeManager.Singleton.StartNewPeriord(8, 19, speed);
             startButton.gameObject.SetActive(false);
         }
 

@@ -8,11 +8,12 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Singleton;
     public int day;
-    public int hour;
+    public int hour = 8;
     public int minute;
 
     private bool isCountingTime = false;
     private float duration = 0;
+    private int mySampleSpeed;
     private int mySpeed;
 
     private void Awake() {
@@ -43,27 +44,28 @@ public class TimeManager : MonoBehaviour
     /// <param name="end"></param>
     /// <param name="speed">游戏内10分钟对应现实几秒</param>
     /// <returns></returns>
-    public IEnumerator StartNewPeriord(int start, int end, int speed){
+    public void StartNewPeriord(int start, int end, int speed){
         hour = start;
         minute = 0;
         isCountingTime = true;
-        mySpeed = speed;
+        mySpeed = mySampleSpeed = speed;
 
         //TODO:进入时触发
 
-        while(hour < end){
-            yield return new WaitForSeconds(1 * speed);
-            minute += 10;
-            if(minute >= 60){
-                minute = minute % 60;
-                hour++;
-            }
-            //更新UI
-            EventHandler.UpdateTimeUI(hour, minute);
-        }
+        //while(hour < end){
+        //    yield return new WaitForSeconds(1 * speed);
+        //    minute += 10;
+        //    if(minute >= 60){
+        //        minute = minute % 60;
+        //        hour++;
+        //    }
+        //    //更新UI
+        //    EventHandler.UpdateTimeUI(hour, minute);
+        //}
 
         //TODO:退出时触发
     }
+    //已经完成实时计时，去除协程
 
     private void Update()
     {
@@ -88,6 +90,22 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    private void FleshTimeUI() => EventHandler.UpdateTimeUI(hour, minute);
+    private void FleshTimeUI(string _sceneName)
+    {
+        EventHandler.UpdateTimeUI(hour, minute);
+        switch (_sceneName) 
+        {
+            case "大厅":
+                mySpeed = mySampleSpeed * 2;
+                break;
+            case "卖书场景":
+                mySpeed = mySampleSpeed;
+                break;
+            case "-1":
+                mySpeed = 0;
+                break;
+        }
+    }
+
     private void CheckTimer(int a,int b) { }//空函数，用来确保订阅非空
 }

@@ -10,7 +10,7 @@ public class HallInfo : MonoBehaviour
     private void OnEnable()
     {
         EventHandler.UpdateTimeUI += _UpdateTimeUI;
-        EventHandler.CallTransferScene();
+        EventHandler.CallTransferScene("´óÌü");
     }
 
     private void _UpdateTimeUI(int hour, int minute)

@@ -6,9 +6,10 @@ using UnityEngine;
 
 public static class EventHandler
 {
-    public static event Action TransferScene;
-    public static void CallTransferScene(){
-        TransferScene?.Invoke();
+    //检查场景转换
+    public static event Action<string> TransferScene;
+    public static void CallTransferScene(string _sceneName){
+        TransferScene?.Invoke(_sceneName);
     }
 
     //数据处理

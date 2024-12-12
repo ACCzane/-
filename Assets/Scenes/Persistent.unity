@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   day: 0
-  hour: 0
+  hour: 8
   minute: 0
 --- !u!4 &909052479
 Transform:

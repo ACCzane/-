@@ -12,7 +12,7 @@ namespace Bedroom
         private void OnEnable()
         {
             EventHandler.UpdateTimeUI += UpdateTimeUI_;
-            EventHandler.CallTransferScene();
+            EventHandler.CallTransferScene("-1");
         }
 
         private void UpdateTimeUI_(int hour, int minute)
