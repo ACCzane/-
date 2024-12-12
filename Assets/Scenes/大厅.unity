@@ -1189,9 +1189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117e3ce747e35cf4285d67ad828b209f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyButton: {fileID: 1808233100}
-  bedButton: {fileID: 927153786}
-  underButton: {fileID: 547072463}
+  sellButton: {fileID: 1808233100}
+  bedButton: {fileID: 547072463}
+  buyButton: {fileID: 927153786}
 --- !u!114 &536567999
 MonoBehaviour:
   m_ObjectHideFlags: 0
