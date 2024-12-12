@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HallButtonScript : MonoBehaviour
 {
-    [Header("大厅")]
+    [Header("按钮引用")]
     [SerializeField] private Button sellButton;
     [SerializeField] private Button bedButton;
     [SerializeField] private Button buyButton;
